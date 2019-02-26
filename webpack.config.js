@@ -25,7 +25,17 @@ module.exports = {
             }, {
                 loader: "less-loader" // compiles Less to CSS
             }]
-        }, ]
+        }, {
+            test: /\.(png|svg|jpg|gif)$/,
+            use: [
+                'file-loader'
+            ]
+        },{
+            test: /\.html$/,
+            use: {
+                loader: 'html-loader'
+            }
+        }]
     },
     plugins: [
         new CleanWebpackPlugin(['dist']),
